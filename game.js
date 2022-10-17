@@ -14,7 +14,6 @@ class Location {
       return this.linkedLocations[direction];
     } else {
       alert("You can't go that way");
-      // return this;
     }
   }
 
@@ -27,6 +26,10 @@ class Character {
   constructor(name, desc) {
     this.name = name;
     this.desc = desc;
+    this.linkedCharacters = {};
+  }
+  linkCharacter(direction, characterToLink) {
+    this.linkedCharacters[direction] = characterToLink;
   }
 
   describe() {
@@ -57,9 +60,9 @@ const Cave = new Location(
 );
 const Clearing = new Location(
   "clearing",
-  "a beautiful open meadow filled with wild flowers"
+  "a beautiful open meadow filled with wild flowers."
 );
-const Forest = new Location("forest", "a dense maze of thick firs");
+const Forest = new Location("forest", "a dense maze of thick firs.");
 
 Cave.linkLocation("left", Clearing);
 Cave.linkLocation("right", Forest);
@@ -79,14 +82,14 @@ const Mage = new Enemy(
   "Fire"
 );
 
-const descriptionBox = document.getElementById("descriptionBox");
-descriptionBox.innerHTML = Blossom.describe();
+const characterBox = document.getElementById("characterBox");
+characterBox.innerHTML = Blossom.describe();
 
 function displayLocationInfo(location) {
   document.getElementById("locationBox").innerHTML =
     location.describeLocation();
   document.getElementById("locationBox").focus();
-  document.getElementById("descriptionBox").style.display = "none";
+  document.getElementById("characterBox").style.display = "none";
 }
 
 document.addEventListener("keydown", function (event) {
@@ -107,7 +110,7 @@ document.addEventListener("keydown", function (event) {
 function startGame() {
   currentLocation = Cave;
   displayLocationInfo(currentLocation);
-  document.getElementById("descriptionBox").style.display = "block";
+  document.getElementById("characterBox").style.display = "block";
 }
 
 startGame();
