@@ -6,14 +6,13 @@ body {
 #locationBox {
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-left: 10vw;
+  padding-right: 10vw;
 }
 
 form {
-  display: flex;
-  justify-content: center;
-}
-
-#descriptionBox {
   display: flex;
   justify-content: center;
 }

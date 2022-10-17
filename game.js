@@ -51,7 +51,10 @@ class Enemy extends Character {
 
 // locations
 
-const Cave = new Location("cave", "a dark cold chasm of emptiness.");
+const Cave = new Location(
+  "cave",
+  "a dark cold chasm of emptiness. On your left there is a clearing, and on your right there is a forest."
+);
 const Clearing = new Location(
   "clearing",
   "a beautiful open meadow filled with wild flowers"
@@ -83,6 +86,7 @@ function displayLocationInfo(location) {
   document.getElementById("locationBox").innerHTML =
     location.describeLocation();
   document.getElementById("locationBox").focus();
+  document.getElementById("descriptionBox").style.display = "none";
 }
 
 document.addEventListener("keydown", function (event) {
@@ -100,15 +104,10 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-function displayLocationInfo(location) {
-  document.getElementById("locationBox").innerHTML =
-    location.describeLocation();
-  document.getElementById("locationBox").focus();
-}
-
 function startGame() {
   currentLocation = Cave;
   displayLocationInfo(currentLocation);
   document.getElementById("descriptionBox").style.display = "block";
 }
+
 startGame();
