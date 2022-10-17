@@ -12,7 +12,31 @@ body {
   padding-right: 10vw;
 }
 
+#characterBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+
+#ui {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+
 form {
   display: flex;
   justify-content: center;
+}
+
+input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
