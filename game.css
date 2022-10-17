@@ -1,0 +1,19 @@
+body {
+  background-color: black;
+  color: aliceblue;
+}
+
+#locationBox {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+#descriptionBox {
+  display: flex;
+  justify-content: center;
+}

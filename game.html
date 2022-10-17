@@ -4,13 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Adventure Game</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="game.css" />
   </head>
   <body>
-    <div id="descriptionBox"></div>
-    <div id="locationBox"></div>
-    <div id="ui"></div>
-    <input type="text" />
+    <div class="row">
+      <div id="descriptionBox" class="col-12"></div>
+      <div id="locationBox" class="col-12"></div>
+    </div>
+    <form>
+      <input type="text" name="name" id="ui" />
+    </form>
     <script src="game.js"></script>
   </body>
 </html>

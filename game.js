@@ -9,12 +9,12 @@ class Location {
   }
 
   move(direction) {
-    console.log(direction, this.linkedLocations[direction]);
+    direction, this.linkedLocations[direction];
     if (direction in this.linkedLocations) {
       return this.linkedLocations[direction];
     } else {
       alert("You can't go that way");
-      return this;
+      // return this;
     }
   }
 
@@ -51,17 +51,17 @@ class Enemy extends Character {
 
 // locations
 
-const Cave = new Location(
-  "cave",
-  "a dark cold chasm of emptiness",
-  "left",
-  "right"
-);
+const Cave = new Location("cave", "a dark cold chasm of emptiness.");
 const Clearing = new Location(
   "clearing",
   "a beautiful open meadow filled with wild flowers"
 );
 const Forest = new Location("forest", "a dense maze of thick firs");
+
+Cave.linkLocation("left", Clearing);
+Cave.linkLocation("right", Forest);
+Clearing.linkLocation("back", Cave);
+Forest.linkLocation("back", Cave);
 
 // characters
 
@@ -82,31 +82,33 @@ descriptionBox.innerHTML = Blossom.describe();
 function displayLocationInfo(location) {
   document.getElementById("locationBox").innerHTML =
     location.describeLocation();
-  document.getElementById("ui").focus();
+  document.getElementById("locationBox").focus();
 }
-
-function startGame() {
-  currentLocation = Cave;
-  displayLocationInfo(currentLocation);
-}
-
-Cave.linkLocation("left", Clearing);
-Cave.linkLocation("right", Forest);
-Clearing.linkLocation("back", Cave);
-Forest.linkLocation("back", Cave);
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     command = document.getElementById("ui").value;
     const directions = ["left", "right", "back"];
-  }
-  if (directions.includes(command.toLowerCase())) {
-    currentLocation = currentLocation.move(command);
-    displayLocationInfo(currentLocation);
-  } else {
-    document.getElementById("ui").value = "";
-    alert("that is not a valid comment, please try again");
+
+    if (directions.includes(command.toLowerCase())) {
+      currentLocation = currentLocation.move(command);
+      displayLocationInfo(currentLocation);
+    } else {
+      document.getElementById("ui").value = "";
+      alert("that is not a valid comment, please try again");
+    }
   }
 });
 
+function displayLocationInfo(location) {
+  document.getElementById("locationBox").innerHTML =
+    location.describeLocation();
+  document.getElementById("locationBox").focus();
+}
+
+function startGame() {
+  currentLocation = Cave;
+  displayLocationInfo(currentLocation);
+  document.getElementById("descriptionBox").style.display = "block";
+}
 startGame();
